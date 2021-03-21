@@ -29,4 +29,4 @@ ENV PATH $PATH:/root/.roswell/bin
 EXPOSE 8080
 
 # コンテナが起動したときに実行される命令を指定する
-CMD ["ros", "run", "--", "--load", "app.lisp"]
+CMD ["clackup", "app.lisp", "--address", "0.0.0.0", "--port", "8080"]

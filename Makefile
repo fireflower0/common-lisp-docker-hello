@@ -4,7 +4,7 @@ DOCKER = docker
 
 all:
 	$(DOCKER) build -t $(TARGET) .
-	$(DOCKER) run -it -p $(PORT) $(TARGET)
+	$(DOCKER) run -d -p $(PORT) $(TARGET)
 
 # clean:
 # 	docker stop $(docker ps -q)
