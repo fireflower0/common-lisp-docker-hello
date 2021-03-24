@@ -8,7 +8,7 @@ WORKDIR /app
 ADD . /app
 
 # Roswellのインストール
-RUN apk add --no-cache git automake autoconf make gcc build-base curl-dev curl glib-dev && \
+RUN apk add --no-cache git build-base automake autoconf curl-dev && \
     git clone -b release https://github.com/roswell/roswell.git && \
     cd roswell && \
     sh bootstrap && \
