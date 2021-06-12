@@ -2,8 +2,10 @@ version: '3.8'
 
 services:
   web:
-    container_name: hello
+    build: ./src
     image: common-lisp-docker-hello
-    build: .
+    container_name: hello
     ports:
       - "8080:8080"
+    environment:
+      TZ: "Asia/Tokyo"

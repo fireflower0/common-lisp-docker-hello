@@ -3,3 +3,6 @@ all:
 
 clean:
 	docker-compose down --rmi all
+
+# All containers remove
+# $ docker system prune
