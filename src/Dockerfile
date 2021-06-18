@@ -21,12 +21,10 @@ RUN apk add --no-cache git build-base automake autoconf curl-dev && \
 
 # Clack をインストールする
 RUN ros install clack
+RUN ros install fukamachi/utopian
 
 # .roswellにPATHを通す
 ENV PATH $PATH:/root/.roswell/bin
 
-# Docker に対して｢ 8080 番ポート ｣で待受けするよう指定する
-EXPOSE 8080
-
 # コンテナが起動したときに実行される命令を指定する
-CMD ["clackup", "app.lisp", "--address", "0.0.0.0", "--port", "8080"]
+CMD ["clackup", "-s", "utopian", "app.lisp", "--address", "0.0.0.0", "--port", "8080"]
