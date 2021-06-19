@@ -1,16 +1,23 @@
-(defpackage #:hello
+(defpackage #:hello/app
   (:use #:cl
-        #:utopian))
-(in-package #:hello)
+        #:utopian
+        #:cl-markup))
+(in-package #:hello/app)
 
 (defun index (params)
   (declare (ignore params))
-  "<html><body>Hello, World!</body></html>")
+  (list
+   (markup
+    (html
+     (:head
+      (:meta :content "text/html" :charset "UTF-8")
+      (:title "Hello"))
+     (:body
+      (:div "Hello, fireflower0"))))))
 
 (defroutes *routes*
   ((:GET "/" #'index)))
 
 (defapp minimal-app () ())
 
-(make-instance 'minimal-app
-               :routes *routes*)
+(make-instance 'minimal-app :routes *routes*)

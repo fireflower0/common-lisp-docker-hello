@@ -20,11 +20,13 @@ RUN apk add --no-cache git build-base automake autoconf curl-dev && \
     ros setup -q
 
 # Clack をインストールする
-RUN ros install clack
-RUN ros install fukamachi/utopian
+RUN ros install fukamachi/qlot
 
 # .roswellにPATHを通す
 ENV PATH $PATH:/root/.roswell/bin
 
+# qlfileに書かれたライブラリをインストールする
+RUN qlot install
+
 # コンテナが起動したときに実行される命令を指定する
-CMD ["clackup", "-s", "utopian", "app.lisp", "--address", "0.0.0.0", "--port", "8080"]
+CMD ["qlot", "exec", "ros", "hello.ros"]
