@@ -11,13 +11,16 @@ exec ros -Q -- $0 "$@"
 (ql:quickload '(:hello) :silent t)
 
 (defun main (&rest argv)
-  (declare (ignore argv))
   (format t "Start program~%")
-  (let ((handler
-          (clack:clackup #P"./app.lisp"
-                         :address "0.0.0.0"
-                         :port 8080
-                         :use-thread nil)))
+  (let* ((is-docker (and (= (length argv) 2)
+                         (string= (first argv) "--docker")
+                         (string= (second argv) "t")))
+         (handler
+           (apply #'clack:clackup
+                  #P"./app.lisp"
+                  :address "0.0.0.0"
+                  :port 8080
+                  `(,@(and is-docker '(:use-thread nil))))))
     (format t "Press Enter to exit the program~%")
     (read-line)
     (clack:stop handler)

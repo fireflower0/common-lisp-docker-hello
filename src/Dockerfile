@@ -29,4 +29,4 @@ ENV PATH $PATH:/root/.roswell/bin
 RUN qlot install
 
 # コンテナが起動したときに実行される命令を指定する
-CMD ["qlot", "exec", "ros", "hello.ros"]
+CMD ["qlot", "exec", "ros", "hello.ros", "--docker", "t"]
