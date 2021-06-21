@@ -8,4 +8,8 @@
   (declare (ignore params))
   (with-html "Hello"
     (:h1 "Headline")
-    (:div "Hello, world!")))
+    (:div "Hello, world!")
+    (:h1 "List")
+    (:ul (:li "foo")
+         (:li "bar")
+         (:li "baz"))))
