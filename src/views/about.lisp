@@ -7,4 +7,6 @@
 (defun about (params)
   (declare (ignore params))
   (with-html "About"
-    (:div "foo, bar, baz")))
+    (:div "foo")
+    (:div "bar")
+    (:div "baz")))

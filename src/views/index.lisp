@@ -7,4 +7,5 @@
 (defun index (params)
   (declare (ignore params))
   (with-html "Hello"
-    (:div "Hello, fireflower0")))
+    (:h1 "Headline")
+    (:div "Hello, world!")))
