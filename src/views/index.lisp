@@ -1,5 +1,6 @@
 (defpackage #:hello/views/index
   (:use #:cl
+        #:cl-markup
         #:hello/views/utils)
   (:export #:index))
 (in-package #:hello/views/index)
@@ -10,6 +11,5 @@
     (:h1 "Headline")
     (:div "Hello, world!")
     (:h1 "List")
-    (:ul (:li "foo")
-         (:li "bar")
-         (:li "baz"))))
+    (:ul (loop for v in '("foo" "bar" "baz")
+               collect (markup (:li v))))))
