@@ -12,4 +12,11 @@
     (:div "Hello, world!")
     (:h1 "List")
     (:ul (loop for v in '("foo" "bar" "baz")
-               collect (markup (:li v))))))
+               collect (markup (:li v))))
+    (:table :border 1
+     (loop for i from 1 to 9
+           collect (markup
+                    (:tr
+                     (loop for j from 1 to 9
+                           collect (markup
+                                    (:td (format nil "~A" (* i j)))))))))))
