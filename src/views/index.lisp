@@ -12,6 +12,8 @@
     (:div "Hello, world!")
     (:h1 "Button")
     (:button "Clicked!")
+    (:h1 "Input")
+    (:input)
     (:h1 "List")
     (:ul (loop for v in '("foo" "bar" "baz")
                collect (markup (:li v))))
